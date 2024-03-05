@@ -31,8 +31,8 @@ const ProjectDetailPage = async ({ params }) => {
             <h1 className="text-2xl font-bold">Project not found</h1>
           </div>
           <p className="text-base text-center font-semibold">
-            It looks like the project you're looking for doesn't exist. Please
-            verify the ID and try again.
+            It looks like the project you&apos;re looking for doesn&apos;t
+            exist. Please verify the ID and try again.
           </p>
         </div>
       )}
