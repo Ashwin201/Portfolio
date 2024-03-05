@@ -27,7 +27,7 @@ const ProjectDetail = ({ data }) => {
           <div className=" col-span-2 lg:col-span-1">
             <div className=" relative ">
               <img
-                src={data?.image?.[currentIndex]}
+                src={`${data?.image?.[currentIndex]}`}
                 alt="Project Image"
                 width={100}
                 height={100}
@@ -56,12 +56,12 @@ const ProjectDetail = ({ data }) => {
                 {data?.image?.slice(0, visibility).map((data, index) => (
                   <div className=" col-span-1  " key={index}>
                     <Image
-                      src={data}
+                      src={`${data}`}
                       alt="Image"
                       width={100}
                       height={100}
                       onClick={() => handleImages(index)}
-                      className={`cursor-pointer object-cover rounded-md w-full h-auto 
+                      className={`cursor-pointer object-cover rounded-md w-full h-[40px] 
                     ${
                       index === currentIndex
                         ? "border-gray-950 dark:border-gray-300  border-2 "
