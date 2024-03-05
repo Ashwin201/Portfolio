@@ -388,7 +388,7 @@ const AdminProjects = () => {
               <div className=" mt-1 flex flex-col gap-1">
                 {features &&
                   features?.map((item, index) => (
-                    <div className=" flex gap-2" key={index}>
+                    <div key={index} className=" flex gap-2">
                       <p className=" line-clamp-2 text-sm font-medium">
                         {item}{" "}
                       </p>

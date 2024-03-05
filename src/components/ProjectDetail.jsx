@@ -110,8 +110,11 @@ const ProjectDetail = ({ data }) => {
             <h3 className=" font-bold text-2xl mb-5">Technologies Used 💻 </h3>
             <div className=" flex flex-wrap datas-start gap-3 sm:gap-6">
               {data?.technology &&
-                data?.technology?.map((item) => (
-                  <span className=" py-[6px] px-4 sm:px-6 text-base font-semibold bg-gray-950 text-gray-300 dark:bg-gray-300 dark:text-gray-950 rounded-full cursor-pointer shadow-sm dark:shadow-gray-800 shadow-gray-300 ">
+                data?.technology?.map((item, index) => (
+                  <span
+                    key={index}
+                    className=" py-[6px] px-4 sm:px-6 text-base font-semibold bg-gray-950 text-gray-300 dark:bg-gray-300 dark:text-gray-950 rounded-full cursor-pointer shadow-sm dark:shadow-gray-800 shadow-gray-300 "
+                  >
                     {item}
                   </span>
                 ))}
@@ -123,8 +126,11 @@ const ProjectDetail = ({ data }) => {
           <div>
             <h3 className=" font-bold text-2xl mb-5">Key Features 🚀</h3>
             <div className=" flex  flex-col gap-2">
-              {data?.feature?.map((item) => (
-                <p className=" flex items-start text-start  lg:items-center text-base font-semibold dark:text-gray-300 text-gray-900  ">
+              {data?.feature?.map((item, index) => (
+                <p
+                  key={index}
+                  className=" flex items-start text-start  lg:items-center text-base font-semibold dark:text-gray-300 text-gray-900  "
+                >
                   ◾ &nbsp; {item}
                 </p>
               ))}

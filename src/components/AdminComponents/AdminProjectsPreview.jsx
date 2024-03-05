@@ -57,8 +57,11 @@ hover:bg-gray-900 duration-300 shadow-sm  "
         projects && (
           <div className=" flex flex-col gap-6">
             {projects?.map((data, index) => (
-              <div className=" grid grid-cols-2 gap-5 sm:grid-cols-3 rounded-md shadow-md shadow-gray-200 dark:shadow-gray-900   p-3 ">
-                <div key={index} className=" col-span-2 sm:col-span-1">
+              <div
+                key={index}
+                className=" grid grid-cols-2 gap-5 sm:grid-cols-3 rounded-md shadow-md shadow-gray-200 dark:shadow-gray-900   p-3 "
+              >
+                <div className=" col-span-2 sm:col-span-1">
                   <img
                     src={data?.image[0]}
                     width={100}

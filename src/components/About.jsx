@@ -40,7 +40,7 @@ const AboutMe = async () => {
       ) : (
         data &&
         data?.map((item, index) => (
-          <div className=" mt-[40px]   ">
+          <div key={index} className=" mt-[40px]   ">
             <AnimatedText text="Passion Fuels Purpose!" />
             <div className="  grid grid-cols-2 my-14  gap-8 lg:gap-14 2xl:gap-3 place-items-center">
               {/* <div

@@ -37,8 +37,8 @@ const EditAboutDetailPage = async ({ params }) => {
             <h1 className="text-2xl font-bold">About Detail not found</h1>
           </div>
           <p className="text-base text-center font-semibold">
-            It looks like the about detail you're looking for doesn't exist.
-            Please verify the ID and try again.
+            It looks like the about detail you&apos;re looking for doesn&apos;t
+            exist. Please verify the ID and try again.
           </p>
         </div>
       )}
