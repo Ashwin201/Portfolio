@@ -1,21 +1,17 @@
 import React from "react";
-import { client } from "../lib/sanity";
-import { GoDotFill } from "react-icons/go";
 const getData = async () => {
-  const query = `*[_type=="experience"]{
-      id,
-      title,
-      company,
-      duration,
-      description,
-  }`;
-  const data = await client.fetch(query);
-  return data;
+  try {
+    const res = await fetch(`/api/experience`);
+    if (res.ok) {
+      const data = await res.json();
+      return data;
+    }
+  } catch (error) {
+    console.log(error);
+  }
 };
-
 const Info = async () => {
   const data = await getData();
-  const sortedData = data.sort((a, b) => a.id - b.id);
   return (
     <>
       <div className=" mb-[150px] sm:px-12 lg:px-20 xl:px-52 ml-4 sm:ml-0">
@@ -60,35 +56,33 @@ const Info = async () => {
           <h1 className="items-center text-center font-bold text-5xl sm:text-[55px] lg:text-[65px] mt-24 mb-20 ">
             Experience
           </h1>
-          <div className="flex flex-col text-start ">
-            <div className=" flex flex-col gap-16 border-l-[3px] border-black dark:border-white  ">
-              {sortedData &&
-                sortedData?.map((item) => (
-                  <div
-                    className="relative ml-[30px] sm:ml-[65px] flex flex-col gap-3  "
-                    key={item.id}
-                  >
-                    <div className=" flex flex-col sm:flex-row gap-3 sm:items-center text-start">
-                      <h3 className="  font-bold text-[25px] sm:text-[30px] ">
-                        {item.title}
-                      </h3>
-                      <h5 className=" hidden  pb-1 text-blue-700 font-bold text-[23px] sm:text-[25px] ">
-                        @CodeSoft
-                      </h5>
+          {data &&
+            data?.map((item, index) => (
+              <div key={index} className="flex flex-col text-start ">
+                <div className=" flex flex-col gap-16 border-l-[3px] border-black dark:border-white  ">
+                  <div className="relative ml-[30px] sm:ml-[65px]  ">
+                    {/* mb-16 */}
+                    <div className="  font-bold text-[25px] sm:text-[30px] mb-2">
+                      {item?.role}
                     </div>
-                    <p className="  text-xl font-bold">{item.duration}</p>
-                    <div className=" flex flex-col gap-2">
-                      <p className=" flex items-start gap-1 font-medium text-black dark:text-white  text-base">
-                        {item.description}
-                      </p>
+                    {item?.company && (
+                      <div className="  font-bold text-xl text-blue-700 mb-2">
+                        @{item?.company}
+                      </div>
+                    )}
+                    <div className="  text-xl mb-2 font-bold">
+                      {item?.duration}
                     </div>
+                    <p className="font-medium text-black dark:text-white">
+                      {item?.description}
+                    </p>
                     <span className=" absolute top-0 left-0  flex justify-center align-middle items-center  w-[27px] h-[27px]  sm:w-[30px] sm:h-[30px] bg-white dark:bg-black border-black dark:border-white  border-[3px] -ml-[45px] sm:-ml-[81px] rounded-[50%]">
                       <span className="w-[12px] h-[12px] sm:w-[15px] sm:h-[15px] bg-black  dark:bg-white  rounded-[50%]"></span>
                     </span>
                   </div>
-                ))}
-            </div>
-          </div>
+                </div>
+              </div>
+            ))}
         </div>
       </div>
     </>

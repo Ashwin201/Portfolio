@@ -7,8 +7,7 @@ import { FaMailBulk } from "react-icons/fa";
 import { MdMarkEmailUnread } from "react-icons/md";
 import AnimatedText from "./AnimatedText";
 import contact from "../../public/images/contact.webp";
-import toast, { Toaster } from "react-hot-toast";
-import axios from "axios";
+import toast from "react-hot-toast";
 const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -26,54 +25,57 @@ const Contact = () => {
         return;
       }
 
-      const data = {
-        service_id: process.env.NEXT_PUBLIC_SERVICE_ID,
-        template_id: process.env.NEXT_PUBLIC_TEMPLATE_ID,
-        user_id: process.env.NEXT_PUBLIC_USER_ID,
-        template_params: {
-          from_name: name,
-          from_email: email,
-          to_name: "Ashmin",
-          subject: subject,
-          message: message,
+      //For sending email to gmail
+
+      const res = await fetch(`/api/email`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-      };
+        body: JSON.stringify({ name, email, subject, message }),
+      });
 
-      const response = await axios.post(
-        `https://api.emailjs.com/api/v1.0/email/send`,
-        data
-      );
-
-      if (response) {
-        console.log(response);
+      //For sending email to Admin Dashboard
+      if (res.ok) {
+        // console.log(response);
         setName("");
         setEmail("");
         setMessage("");
         setSubject("");
         setError("");
         toast.success(
-          ` Congratulations, ${name}! Your message has been successfully sent. `
+          ` Congratulations, ${name}! Your message has been sent successfully. `
         );
+
+        const adminRes = await fetch(`/api/sendEmail`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            subject,
+            message,
+          }),
+        });
+
+        if (adminRes.ok) {
+          console.log("Email sent successfully");
+        } else {
+          console.error("Failed to send admin notification email");
+        }
       } else {
         toast.error(`Apologies! Failed to deliver your message.`);
       }
     } catch (error) {
-      console.error("Error sending the request:", error);
+      console.log("Error sending the request:", error);
       // Handle other errors such as network issues
     }
   };
 
   return (
     <>
-      <Toaster
-        position=" bottom-right"
-        toastOptions={{
-          style: {
-            background: "black",
-            color: "white",
-          },
-        }}
-      />
       <section className="mt-[40px] sm:mt[80px] mb-[120px]">
         <div className="mb-[40px]">
           <AnimatedText text="Get in Touch!" />
@@ -131,7 +133,7 @@ const Contact = () => {
                         placeholder="Enter Your Name"
                       />
 
-                      <span className=" text-gray-500 dark:text-gray-400 pointer-events-none bg-white dark:bg-[#121212] absolute start-2.5 top-0 -translate-y-1/2  p-0.5 text-xs font-medium  transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-0 peer-focus:text-xs py-[2px] px-2">
+                      <span className=" text-gray-500 dark:text-gray-400 pointer-events-none bg-white dark:bg-[#000000] absolute start-2.5 top-0 -translate-y-1/2  p-0.5 text-xs font-medium  transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-0 peer-focus:text-xs py-[2px] px-2">
                         Name
                       </span>
                     </label>
@@ -151,7 +153,7 @@ const Contact = () => {
                       />
 
                       <span
-                        className=" text-gray-500 dark:text-gray-400 pointer-events-none bg-white dark:bg-[#121212] absolute start-2.5 top-0 -translate-y-1/2  p-0.5 text-xs  font-medium
+                        className=" text-gray-500 dark:text-gray-400 pointer-events-none bg-white dark:bg-[#000000] absolute start-2.5 top-0 -translate-y-1/2  p-0.5 text-xs  font-medium
                      transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-0 peer-focus:text-xs py-[2px] px-2"
                       >
                         Email
@@ -174,7 +176,7 @@ const Contact = () => {
                       />
 
                       <span
-                        className=" text-gray-500 dark:text-gray-400 pointer-events-none bg-white dark:bg-[#121212] absolute start-2.5 top-0 -translate-y-1/2  p-0.5 text-xs font-medium 
+                        className=" text-gray-500 dark:text-gray-400 pointer-events-none bg-white dark:bg-[#000000] absolute start-2.5 top-0 -translate-y-1/2  p-0.5 text-xs font-medium 
                      transition-all peer-placeholder-shown:top-[22px] peer-placeholder-shown:text-sm peer-focus:top-0 peer-focus:text-xs py-[2px] px-2"
                       >
                         Subject
@@ -197,7 +199,7 @@ const Contact = () => {
                       />
 
                       <span
-                        className=" text-gray-500 dark:text-gray-400 pointer-events-none bg-white dark:bg-[#121212] absolute start-2.5 top-0 -translate-y-1/2  p-0.5 text-xs  font-medium
+                        className=" text-gray-500 dark:text-gray-400 pointer-events-none bg-white dark:bg-[#000000] absolute start-2.5 top-0 -translate-y-1/2  p-0.5 text-xs  font-medium
                      transition-all peer-placeholder-shown:top-6 peer-placeholder-shown:text-sm peer-focus:top-0 peer-focus:text-xs py-[2px] px-2"
                       >
                         Message

@@ -3,13 +3,7 @@ import Image from "next/image";
 import { TiWeatherSunny } from "react-icons/ti";
 import { FaInstagram } from "react-icons/fa6";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import {
-  BsSunFill,
-  BsMoonStarsFill,
-  BsGithub,
-  BsInfoCircleFill,
-  BsFillFileEarmarkTextFill,
-} from "react-icons/bs";
+import { BsInfoCircleFill, BsFillFileEarmarkTextFill } from "react-icons/bs";
 import { BiMenuAltRight, BiSolidBriefcase } from "react-icons/bi";
 import { RxCross2 } from "react-icons/rx";
 import { AiFillHome } from "react-icons/ai";
@@ -20,9 +14,11 @@ import logo from "../../public/images/logo.webp";
 import { usePathname } from "next/navigation";
 import ThemeSwitcher from "./ThemeSwitcher";
 import { IoMdContact } from "react-icons/io";
+import AdminNavbar from "./AdminComponents/AdminNavbar";
+import { useSession } from "next-auth/react";
 const Navbar = () => {
   const pathName = usePathname();
-
+  const { data: session } = useSession();
   const [menuopen, setMenuOpen] = useState(false);
 
   const handleNav = () => {
@@ -49,7 +45,7 @@ const Navbar = () => {
     {
       id: 4,
       title: "Projects",
-      href: "/projects",
+      href: "/project",
     },
     {
       id: 5,
@@ -57,7 +53,9 @@ const Navbar = () => {
       href: "/contact",
     },
   ];
-  return (
+  return session && pathName.startsWith("/admin") ? (
+    <AdminNavbar />
+  ) : (
     <div>
       <nav className=" sticky   top-0 bg-bg font-medium flex justify-between items-center align-middle mb-3">
         <Link href="/" aria-label="Home">
@@ -76,7 +74,7 @@ const Navbar = () => {
                 {item.title}
                 <span
                   className={`absolute inline-block left-0 -bottom-1  h-[1.8px] w-full  transition-all duration-500 ease-in-out 
-                ${item.href === pathName && " bg-black dark:bg-white "}`}
+                  ${item.href === pathName && " bg-black dark:bg-white "}`}
                 ></span>
               </Link>
             </li>
@@ -110,22 +108,6 @@ const Navbar = () => {
             >
               <FaLinkedin size={25} />
             </Link>
-            {/*<Link
-              href="https://www.facebook.com/profile.php?id=100033350950689"
-              className="mr-3"
-              aria-label="Facebook"
-              target="_blank"
-            >
-              <FacebookIcon />
-            </Link>
-             <Link
-              href="tel:8607343110"
-              target="_blank"
-              aria-label="phone"
-              className="mr-3"
-            >
-              <PhoneIcon />
-            </Link> */}
           </nav>
         </div>
         <div className=" flex items-center justify-center sm:hidden gap-3 cursor-pointer">
@@ -142,9 +124,10 @@ const Navbar = () => {
         <div
           className={
             menuopen
-              ? "fixed z-50  top-0 left-0 w-60 h-screen transition-all ease-in-out duration-80 bg-slate-100 dark:bg-black border-r-1 rounded-r-[40px] "
-              : " fixed z-50  top-0 -left-full h-screen transition-all ease-in-out rounded-r-3xl duration-800"
+              ? "fixed z-50  top-0 right-0 w-60 h-screen transition-all ease-in-out duration-80 bg-slate-100 dark:bg-black border-r-1 rounded-r-[40px] shadow-lg shadow-gray-300 dark:shadow-gray-800 "
+              : " fixed z-50  top-0 -right-full h-screen transition-all ease-in-out rounded-l-3xl duration-800"
           }
+          onClick={handleNav}
         >
           <span
             className=" mt-[18px] mr-8 flex justify-end  cursor-pointer"
@@ -182,7 +165,7 @@ const Navbar = () => {
               <span className="ml-2">Skills</span>
             </Link>
             <Link
-              href="/projects"
+              href="/project"
               aria-label="Projects"
               className="flex items-center text-start font-medium mb-5 text-text1 hover:text-text2 cursor-pointer no-underline transition-all ease-in-out duration-400"
               onClick={handleNav}
@@ -233,14 +216,14 @@ const Navbar = () => {
               </Link>
 
               {/* <Link
-                href="tel:8607343110"
-                aria-label="phone"
-                className="mr-3"
-                onClick={handleNav}
-                target="_blank"
-              >
-                <PhoneIcon />
-              </Link> */}
+                  href="tel:8607343110"
+                  aria-label="phone"
+                  className="mr-3"
+                  onClick={handleNav}
+                  target="_blank"
+                >
+                  <PhoneIcon />
+                </Link> */}
             </div>
           </ul>
         </div>

@@ -7,6 +7,7 @@ import {
   MongoDb,
   NextJs,
   Nodejs,
+  Prisma,
 } from "../../public/SkillIcons";
 const BackEndSkills = () => {
   return (
@@ -41,38 +42,14 @@ const BackEndSkills = () => {
             </span>
           </div>
 
-          {/* <div className=" flex flex-col items-center ">
-                <span className="rounded-[50%] w-[60px] h-[60px] shadow-lg p-[6px]  flex justify-center items-center">
-                  <Prisma />
-                </span>
-                <span className="  font-semibold mt-2 text-text1  text-[12.5px] text-center">
-                  Prisma
-                </span>
-              </div>
-              <div className=" flex flex-col items-center ">
-                <span className="rounded-[50%] w-[60px] h-[60px] shadow-lg p-[6px]  flex justify-center items-center">
-                  <Image src={Strapi} alt="Strapi " className="w-[90px] " />
-                </span>
-                <span className="  font-semibold mt-2 text-text1  text-[12.5px] text-center">
-                  Strapi
-                </span>
-              </div> */}
           <div className=" flex flex-col items-center ">
             <span className="rounded-[50%] w-[60px] h-[60px] shadow-lg p-[6px]  flex justify-center items-center">
-              <Image src={Stripe} alt="Strapi " className="w-[90px] " />
+              <Prisma />
             </span>
             <span className="  font-semibold mt-2 text-text1  text-[12.5px] text-center">
-              Stripe
+              Prisma
             </span>
           </div>
-          {/* <div className=" flex flex-col items-center ">
-                <span className="rounded-[50%] w-[60px] h-[60px] shadow-lg p-[6px]  flex justify-center items-center">
-                  <FireBase />
-                </span>
-                <span className="  font-semibold mt-2 text-text1  text-[12.5px] text-center">
-                  FireBase
-                </span>
-              </div> */}
         </div>
       </div>
     </div>

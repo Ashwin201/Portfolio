@@ -1,11 +1,8 @@
+import Loader from "@/components/Loader";
 import React from "react";
 
 const Loading = () => {
-  return (
-    <div>
-      <span className="loader  "></span>
-    </div>
-  );
+  return <Loader />;
 };
 
 export default Loading;

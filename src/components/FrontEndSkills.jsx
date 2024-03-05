@@ -51,14 +51,14 @@ const FrontEndSkills = () => {
               React
             </span>
           </div>
-          <div className=" flex flex-col items-center ">
+          {/* <div className=" flex flex-col items-center ">
             <span className="rounded-[50%] w-[60px] h-[60px] shadow-lg p-[6px]  flex justify-center items-center">
               <NextJs />
             </span>
             <span className="  font-semibold mt-2 text-text1  text-[12.5px] text-center">
               Nextjs
             </span>
-          </div>
+          </div> */}
           <div className=" flex flex-col items-center ">
             <span className="rounded-[50%] w-[60px] h-[60px] shadow-lg p-[6px]  flex justify-center items-center">
               <Bootstrap />
