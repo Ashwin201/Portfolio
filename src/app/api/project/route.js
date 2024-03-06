@@ -21,6 +21,7 @@ export async function GET(req) {
 export async function POST(req) {
   try {
     const {
+      projectNumber,
       title,
       description,
       category,
@@ -32,6 +33,7 @@ export async function POST(req) {
     } = await req.json();
     await connectToDb();
     const data = await Project.create({
+      projectNumber,
       title,
       description,
       category,

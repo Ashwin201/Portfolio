@@ -6,6 +6,7 @@ import { BsGithub } from "react-icons/bs";
 
 import { useEffect, useState } from "react";
 import Loader from "./Loader";
+import { FaTwitter } from "react-icons/fa";
 const FeaturedProject = ({ type, image, title, summary, link, github }) => {
   return (
     <main
@@ -123,12 +124,13 @@ const Projects = () => {
     fetchData();
   }, []);
 
-  const projects = data?.slice().reverse();
+  const project = data?.slice().reverse();
+  const projects = project.sort((a, b) => b.projectNumber - a.projectNumber);
   return (
     <>
       {loading ? (
         <Loader />
-      ) : (
+      ) : projects?.length > 0 ? (
         <div className="mt-[40px] sm:mt[70px]  mb-[120px] sm:px-10  md:px-3 lg:px-0 xl:px-24 2xl:px-[130px]">
           <AnimatedText text="Imagination Trumps Knowledge!" />
 
@@ -160,6 +162,16 @@ const Projects = () => {
                 )
               )}
           </div>
+        </div>
+      ) : (
+        <div className="flex flex-col items-center justify-center space-y-4">
+          <div className="flex flex-col gap-3 items-center justify-center space-x-4">
+            <FaTwitter size={50} />
+            <h1 className="text-2xl font-bold">Projects not available!</h1>
+          </div>
+          {/* <p className="text-base text-center font-semibold">
+            No projects available currently.
+          </p> */}
         </div>
       )}
     </>

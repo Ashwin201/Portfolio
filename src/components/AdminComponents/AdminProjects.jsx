@@ -14,6 +14,7 @@ const AdminProjects = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
+  const [projectNumber, setProjectNumber] = useState();
   const [category, setCategory] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -105,8 +106,8 @@ const AdminProjects = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!title || !description || !category) {
-      toast.error("Title, Description ,Category and Images are required.");
+    if (!title || !description || !category || !images || !projectNumber) {
+      toast.error("Above fields are required.");
       return;
     }
 
@@ -117,6 +118,7 @@ const AdminProjects = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
+          projectNumber,
           title,
           description,
           category,
@@ -134,6 +136,7 @@ const AdminProjects = () => {
         setData([
           ...data,
           {
+            projectNumber,
             title,
             description,
             category,
@@ -144,6 +147,7 @@ const AdminProjects = () => {
             live,
           },
         ]);
+        setProjectNumber();
         setTitle("");
         setDescription("");
         setCategory("");
@@ -209,6 +213,23 @@ const AdminProjects = () => {
             </button>
           </div>
           <form className=" flex gap-5 flex-col " onSubmit={handleSubmit}>
+            <div className=" w-full">
+              <label
+                htmlFor="sno"
+                className="block text-lg mb-1 ml-1 font-semibold text-gray-900 dark:text-gray-300"
+              >
+                Serial number of your project
+              </label>
+
+              <input
+                type="number"
+                id="sno"
+                onChange={(e) => setProjectNumber(e.target.value)}
+                value={projectNumber}
+                placeholder="Project number"
+                className="mt-1 w-full rounded-md border-2 p-3 bg-[#f8f9fa] dark:bg-gray-950  font-medium border-gray-400 dark:border-gray-600  dark:focus-within:border-gray-300 focus-within:border-gray-900 shadow-sm sm:text-sm"
+              />
+            </div>
             <div className=" w-full">
               <label
                 htmlFor="category"

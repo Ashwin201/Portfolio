@@ -34,6 +34,7 @@ export async function PUT(req, { params }) {
       );
     }
     const {
+      projectNumber,
       title,
       description,
       category,
@@ -47,6 +48,7 @@ export async function PUT(req, { params }) {
     const data = await Project.findByIdAndUpdate(
       { _id: id },
       {
+        projectNumber,
         title,
         description,
         category,

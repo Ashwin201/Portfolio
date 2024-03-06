@@ -1,6 +1,9 @@
 import mongoose, { Schema, models } from "mongoose";
 
 const projectSchema = new Schema({
+  projectNumber: {
+    type: Number,
+  },
   title: {
     type: String,
   },

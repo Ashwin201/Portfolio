@@ -88,7 +88,7 @@ const ProjectDetail = ({ data }) => {
               {data?.category}
             </p>
             <div className="font-bold text-2xl ">{data?.title}</div>
-            <p className="  font-medium line-clamp-5 ">{data?.description}</p>
+            <p className="  font-medium  ">{data?.description}</p>
             <div className="  flex justify-between datas-center mt-2">
               <Link href={data?.github} aria-label="link" target="_blank">
                 <BsGithub size={38} />
