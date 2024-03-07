@@ -10,7 +10,9 @@ export async function generateMetadata({ params }) {
 }
 const getData = async (id) => {
   try {
-    const res = await fetch(`${process.env.NEXTAUTH_URL}/api/project/${id}`);
+    const res = await fetch(`${process.env.NEXTAUTH_URL}/api/project/${id}`, {
+      cache: "no-store",
+    });
     if (res.ok) {
       const data = await res.json();
       return data;

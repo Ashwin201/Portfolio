@@ -99,8 +99,8 @@ const EditAdminExperience = ({ data, id }) => {
           <input
             type="text"
             id="role"
-            onChange={(e) => setRole(e.target.value)}
             value={role}
+            onChange={(e) => setRole(e.target.value)}
             placeholder="eg: Frontend developer / Java Developer"
             className="mt-1 w-full rounded-md border-2 p-3 bg-[#f8f9fa] dark:bg-gray-950  font-medium border-gray-400 dark:border-gray-600  dark:focus-within:border-gray-300 focus-within:border-gray-900 shadow-sm sm:text-sm"
           />
@@ -116,8 +116,8 @@ const EditAdminExperience = ({ data, id }) => {
           <input
             type="text"
             id="company"
-            onChange={(e) => setCompany(e.target.value)}
             value={company}
+            onChange={(e) => setCompany(e.target.value)}
             placeholder="Company name"
             className="mt-1 w-full rounded-md border-2 p-3 bg-[#f8f9fa] dark:bg-gray-950  font-medium border-gray-400 dark:border-gray-600  dark:focus-within:border-gray-300 focus-within:border-gray-900 shadow-sm sm:text-sm"
           />
@@ -133,8 +133,8 @@ const EditAdminExperience = ({ data, id }) => {
           <input
             type="text"
             id="duration"
-            onChange={(e) => setDuration(e.target.value)}
             value={duration}
+            onChange={(e) => setDuration(e.target.value)}
             placeholder="Time period of your work"
             className=" resize-none mt-1 w-full rounded-md border-2 p-3 bg-[#f8f9fa] dark:bg-gray-950  font-medium border-gray-400 dark:border-gray-600  dark:focus-within:border-gray-300 focus-within:border-gray-900 shadow-sm sm:text-sm"
           />
@@ -151,8 +151,8 @@ const EditAdminExperience = ({ data, id }) => {
           <textarea
             type="text"
             rows={4}
-            onChange={(e) => setDescInput(e.target.value)}
             value={descInput}
+            onChange={(e) => setDescInput(e.target.value)}
             id="description"
             placeholder="Detailed description of work"
             className=" resize-none mt-1 w-full rounded-md border-2 p-3 bg-[#f8f9fa] dark:bg-gray-950  font-medium border-gray-400 dark:border-gray-600  dark:focus-within:border-gray-300 focus-within:border-gray-900 shadow-sm sm:text-sm"

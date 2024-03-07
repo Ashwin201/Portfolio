@@ -175,8 +175,8 @@ const EditAdminProjects = ({ data, id }) => {
             <input
               type="number"
               id="sno"
-              onChange={(e) => setProjectNumber(e.target.value)}
               value={projectNumber}
+              onChange={(e) => setProjectNumber(e.target.value)}
               placeholder="Project number"
               className="mt-1 w-full rounded-md border-2 p-3 bg-[#f8f9fa] dark:bg-gray-950  font-medium border-gray-400 dark:border-gray-600  dark:focus-within:border-gray-300 focus-within:border-gray-900 shadow-sm sm:text-sm"
             />
@@ -192,8 +192,8 @@ const EditAdminProjects = ({ data, id }) => {
             <input
               type="text"
               id="category"
-              onChange={(e) => setCategory(e.target.value)}
               value={category}
+              onChange={(e) => setCategory(e.target.value)}
               placeholder="eg: NextJs / MERN"
               className="mt-1 w-full rounded-md border-2 p-3 bg-[#f8f9fa] dark:bg-gray-950  font-medium border-gray-400 dark:border-gray-600  dark:focus-within:border-gray-300 focus-within:border-gray-900 shadow-sm sm:text-sm"
             />
@@ -209,8 +209,8 @@ const EditAdminProjects = ({ data, id }) => {
             <input
               type="text"
               id="name"
-              onChange={(e) => setTitle(e.target.value)}
               value={title}
+              onChange={(e) => setTitle(e.target.value)}
               placeholder="Your project name"
               className="mt-1 w-full rounded-md border-2 p-3 bg-[#f8f9fa] dark:bg-gray-950  font-medium border-gray-400 dark:border-gray-600  dark:focus-within:border-gray-300 focus-within:border-gray-900 shadow-sm sm:text-sm"
             />
@@ -226,8 +226,8 @@ const EditAdminProjects = ({ data, id }) => {
             <input
               type="text"
               id="name"
-              onChange={(e) => setDescription(e.target.value)}
               value={description}
+              onChange={(e) => setDescription(e.target.value)}
               placeholder="Your project description"
               className="mt-1 w-full rounded-md border-2 p-3 bg-[#f8f9fa] dark:bg-gray-950  font-medium border-gray-400 dark:border-gray-600  dark:focus-within:border-gray-300 focus-within:border-gray-900 shadow-sm sm:text-sm"
             />
@@ -298,8 +298,8 @@ const EditAdminProjects = ({ data, id }) => {
 
             <input
               type="text"
-              onChange={(e) => setTechInput(e.target.value)}
               value={techInput}
+              onChange={(e) => setTechInput(e.target.value)}
               id="technology"
               placeholder="Add some technologies used in project"
               className=" resize-none mt-1 w-full rounded-md border-2 p-3 bg-[#f8f9fa] dark:bg-gray-950  font-medium border-gray-400 dark:border-gray-600  dark:focus-within:border-gray-300 focus-within:border-gray-900 shadow-sm sm:text-sm"
@@ -339,8 +339,8 @@ const EditAdminProjects = ({ data, id }) => {
 
             <input
               type="text"
-              onChange={(e) => setFeatureInput(e.target.value)}
               value={featureInput}
+              onChange={(e) => setFeatureInput(e.target.value)}
               id="feature"
               placeholder="Add some features of project"
               className=" resize-none mt-1 w-full rounded-md border-2 p-3 bg-[#f8f9fa] dark:bg-gray-950  font-medium border-gray-400 dark:border-gray-600  dark:focus-within:border-gray-300 focus-within:border-gray-900 shadow-sm sm:text-sm"
@@ -354,7 +354,6 @@ const EditAdminProjects = ({ data, id }) => {
                 Add Feature
               </button>
             )}
-
             <div className=" mt-1 flex flex-col gap-1">
               {features &&
                 features?.map((item, index) => (
@@ -381,8 +380,8 @@ const EditAdminProjects = ({ data, id }) => {
             <input
               type="text"
               id="link"
-              onChange={(e) => setGithub(e.target.value)}
               value={github}
+              onChange={(e) => setGithub(e.target.value)}
               placeholder="Github repository url"
               className="mt-1 w-full rounded-md border-2 p-3 bg-[#f8f9fa] dark:bg-gray-950  font-medium border-gray-400 dark:border-gray-600  dark:focus-within:border-gray-300 focus-within:border-gray-900 shadow-sm sm:text-sm"
             />
@@ -398,8 +397,8 @@ const EditAdminProjects = ({ data, id }) => {
             <input
               type="text"
               id="link"
-              onChange={(e) => setLive(e.target.value)}
               value={live}
+              onChange={(e) => setLive(e.target.value)}
               placeholder="Live website url"
               className="mt-1 w-full rounded-md border-2 p-3 bg-[#f8f9fa] dark:bg-gray-950  font-medium border-gray-400 dark:border-gray-600  dark:focus-within:border-gray-300 focus-within:border-gray-900 shadow-sm sm:text-sm"
             />

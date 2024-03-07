@@ -206,8 +206,8 @@ const AboutAdmin = () => {
               <input
                 type="text"
                 id="role"
-                onChange={(e) => setRole(e.target.value)}
                 value={role}
+                onChange={(e) => setRole(e.target.value)}
                 placeholder="Your current role"
                 className="mt-1 w-full rounded-md border-2 p-3 bg-[#f8f9fa] dark:bg-gray-950  font-medium border-gray-400 dark:border-gray-600  dark:focus-within:border-gray-300 focus-within:border-gray-900 shadow-sm sm:text-sm"
               />
@@ -223,8 +223,8 @@ const AboutAdmin = () => {
               <input
                 type="text"
                 id="title"
-                onChange={(e) => setTitle(e.target.value)}
                 value={title}
+                onChange={(e) => setTitle(e.target.value)}
                 placeholder="Langing page title"
                 className="mt-1 w-full rounded-md border-2 p-3 bg-[#f8f9fa] dark:bg-gray-950  font-medium border-gray-400 dark:border-gray-600  dark:focus-within:border-gray-300 focus-within:border-gray-900 shadow-sm sm:text-sm"
               />
@@ -241,8 +241,8 @@ const AboutAdmin = () => {
                 type="text"
                 id="shortdesc"
                 rows={2}
-                onChange={(e) => setShortdesc(e.target.value)}
                 value={shortDesc}
+                onChange={(e) => setShortdesc(e.target.value)}
                 placeholder="Short Description"
                 className=" resize-none mt-1 w-full rounded-md border-2 p-3 bg-[#f8f9fa] dark:bg-gray-950  font-medium border-gray-400 dark:border-gray-600  dark:focus-within:border-gray-300 focus-within:border-gray-900 shadow-sm sm:text-sm"
               />
@@ -259,8 +259,8 @@ const AboutAdmin = () => {
               <textarea
                 type="text"
                 rows={4}
-                onChange={(e) => setDescInput(e.target.value)}
                 value={descInput}
+                onChange={(e) => setDescInput(e.target.value)}
                 id="description"
                 placeholder="Detailed description"
                 className=" resize-none mt-1 w-full rounded-md border-2 p-3 bg-[#f8f9fa] dark:bg-gray-950  font-medium border-gray-400 dark:border-gray-600  dark:focus-within:border-gray-300 focus-within:border-gray-900 shadow-sm sm:text-sm"
@@ -303,8 +303,8 @@ const AboutAdmin = () => {
               <input
                 type="text"
                 id="link"
-                onChange={(e) => setResumeLink(e.target.value)}
                 value={resumeLink}
+                onChange={(e) => setResumeLink(e.target.value)}
                 placeholder="Resume url"
                 className="mt-1 w-full rounded-md border-2 p-3 bg-[#f8f9fa] dark:bg-gray-950  font-medium border-gray-400 dark:border-gray-600  dark:focus-within:border-gray-300 focus-within:border-gray-900 shadow-sm sm:text-sm"
               />
