@@ -4,9 +4,28 @@ import Link from "next/link";
 import dev from "../../public/images/developer-removebg-preview.png";
 import { motion } from "framer-motion";
 import { RiFolderDownloadFill, RiProfileFill } from "react-icons/ri";
-import CVButton from "./CVButton";
+import { useEffect, useState } from "react";
 
 const Home = () => {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(`/api/about`, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        if (res.ok) {
+          const info = await res.json();
+          setData(info);
+          setLoading(false);
+        }
+      } catch (error) {}
+    };
+    fetchData();
+  }, []);
   return (
     <>
       <header className="flex flex-col xl:flex-row align-middle  justify-center items-center mt-10 xl:mt-0 mb-[120px] lg:mb:[150px] xl:mb-0 ">
@@ -44,7 +63,43 @@ const Home = () => {
 
           <div className="flex justify-center xl:justify-start">
             <ul className="flex font-medium max-[300px]:flex-col ">
-              <CVButton />
+              {loading ? (
+                <li
+                  className="list-none  mr-3  rounded-md bg-black dark:bg-white text-white dark:text-black  border-solid border-2 border-black
+  dark:border-white  hover:scale-95 transition-all duration-300 ease-in-out max-[300px]:mr-0 max-[300px]:mb-3"
+                >
+                  <Link
+                    target="_blank"
+                    aria-label="Resume"
+                    href={`/`}
+                    className=" flex items-center    py-[6px] px-3 text-base "
+                  >
+                    Download CV
+                    <span className="ml-2">
+                      <RiFolderDownloadFill size={20} className="" />
+                    </span>
+                  </Link>
+                </li>
+              ) : (
+                data?.map((item, index) => (
+                  <li
+                    className="list-none  mr-3  rounded-md bg-black dark:bg-white text-white dark:text-black  border-solid border-2 border-black
+    dark:border-white  hover:scale-95 transition-all duration-300 ease-in-out max-[300px]:mr-0 max-[300px]:mb-3"
+                  >
+                    <Link
+                      target="_blank"
+                      aria-label="Resume"
+                      href={`${item?.resume}`}
+                      className=" flex items-center    py-[6px] px-3 text-base "
+                    >
+                      Download CV
+                      <span className="ml-2">
+                        <RiFolderDownloadFill size={20} />
+                      </span>
+                    </Link>
+                  </li>
+                ))
+              )}
               <li className=" border-solid border-2 border-black dark:border-white hover:scale-95  transition-all duration-300 ease-in-out rounded-md ">
                 <Link
                   href="/about"

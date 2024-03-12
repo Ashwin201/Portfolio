@@ -133,7 +133,7 @@ const Contact = () => {
                         placeholder="Enter Your Name"
                       />
 
-                      <span className=" text-gray-500 dark:text-gray-400 pointer-events-none bg-white dark:bg-[#000000] absolute start-2.5 top-0 -translate-y-1/2  p-0.5 text-xs font-medium  transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-0 peer-focus:text-xs py-[2px] px-2">
+                      <span className=" text-gray-500 dark:text-gray-400 pointer-events-none bg-[#f8f9fa] dark:bg-[#000000] absolute start-2.5 top-0 -translate-y-1/2  p-0.5 text-xs font-medium  transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-0 peer-focus:text-xs py-[2px] px-2">
                         Name
                       </span>
                     </label>
@@ -153,7 +153,7 @@ const Contact = () => {
                       />
 
                       <span
-                        className=" text-gray-500 dark:text-gray-400 pointer-events-none bg-white dark:bg-[#000000] absolute start-2.5 top-0 -translate-y-1/2  p-0.5 text-xs  font-medium
+                        className=" text-gray-500 dark:text-gray-400 pointer-events-none bg-[#f8f9fa] dark:bg-[#000000] absolute start-2.5 top-0 -translate-y-1/2  p-0.5 text-xs  font-medium
                      transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-0 peer-focus:text-xs py-[2px] px-2"
                       >
                         Email
@@ -176,7 +176,7 @@ const Contact = () => {
                       />
 
                       <span
-                        className=" text-gray-500 dark:text-gray-400 pointer-events-none bg-white dark:bg-[#000000] absolute start-2.5 top-0 -translate-y-1/2  p-0.5 text-xs font-medium 
+                        className=" text-gray-500 dark:text-gray-400 pointer-events-none bg-[#f8f9fa] dark:bg-[#000000] absolute start-2.5 top-0 -translate-y-1/2  p-0.5 text-xs font-medium 
                      transition-all peer-placeholder-shown:top-[22px] peer-placeholder-shown:text-sm peer-focus:top-0 peer-focus:text-xs py-[2px] px-2"
                       >
                         Subject
@@ -199,7 +199,7 @@ const Contact = () => {
                       />
 
                       <span
-                        className=" text-gray-500 dark:text-gray-400 pointer-events-none bg-white dark:bg-[#000000] absolute start-2.5 top-0 -translate-y-1/2  p-0.5 text-xs  font-medium
+                        className=" text-gray-500 dark:text-gray-400 pointer-events-none bg-[#f8f9fa] dark:bg-[#000000] absolute start-2.5 top-0 -translate-y-1/2  p-0.5 text-xs  font-medium
                      transition-all peer-placeholder-shown:top-6 peer-placeholder-shown:text-sm peer-focus:top-0 peer-focus:text-xs py-[2px] px-2"
                       >
                         Message
@@ -208,7 +208,7 @@ const Contact = () => {
                   </div>
                   <button
                     type="submit"
-                    className=" flex gap-2  items-center text-center w-fit py-[6px] px-3 pr-4 text-base  font-semibold  rounded-md bg-black dark:bg-white text-white dark:text-black  border-solid border-2 border-black
+                    className=" flex gap-2  items-center text-center w-fit py-[6px] px-3 pr-4 text-base  font-semibold  rounded-md bg-black dark:bg-[#f8f9fa] text-white dark:text-black  border-solid border-2 border-black
          dark:border-white  hover:scale-95 transition-all duration-300 ease-in-out max-[300px]:mr-0 max-[300px]:mb-3"
                   >
                     <span>
