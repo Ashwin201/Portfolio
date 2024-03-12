@@ -83,6 +83,7 @@ const Home = () => {
               ) : (
                 data?.map((item, index) => (
                   <li
+                    key={index}
                     className="list-none  mr-3  rounded-md bg-black dark:bg-white text-white dark:text-black  border-solid border-2 border-black
     dark:border-white  hover:scale-95 transition-all duration-300 ease-in-out max-[300px]:mr-0 max-[300px]:mb-3"
                   >
