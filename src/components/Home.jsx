@@ -5,7 +5,7 @@ import dev from "../../public/images/developer-removebg-preview.png";
 import { motion } from "framer-motion";
 import { RiFolderDownloadFill, RiProfileFill } from "react-icons/ri";
 import { useEffect, useState } from "react";
-
+import { GrProjects } from "react-icons/gr";
 const Home = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -63,54 +63,32 @@ const Home = () => {
 
           <div className="flex justify-center xl:justify-start">
             <ul className="flex font-medium max-[300px]:flex-col ">
-              {loading ? (
-                <li
-                  className="list-none  mr-3  rounded-md bg-black dark:bg-white text-white dark:text-black  border-solid border-2 border-black
-  dark:border-white  hover:scale-95 transition-all duration-300 ease-in-out max-[300px]:mr-0 max-[300px]:mb-3"
-                >
-                  <Link
-                    target="_blank"
-                    aria-label="Resume"
-                    href={`/`}
-                    className=" flex items-center    py-[6px] px-3 text-base "
-                  >
-                    Download CV
-                    <span className="ml-2">
-                      <RiFolderDownloadFill size={20} className="" />
-                    </span>
-                  </Link>
-                </li>
-              ) : (
-                data?.map((item, index) => (
-                  <li
-                    key={index}
-                    className="list-none  mr-3  rounded-md bg-black dark:bg-white text-white dark:text-black  border-solid border-2 border-black
-    dark:border-white  hover:scale-95 transition-all duration-300 ease-in-out max-[300px]:mr-0 max-[300px]:mb-3"
-                  >
-                    <Link
-                      target="_blank"
-                      aria-label="Resume"
-                      href={`${item?.resume}`}
-                      className=" flex items-center    py-[6px] px-3 text-base "
-                    >
-                      Download CV
-                      <span className="ml-2">
-                        <RiFolderDownloadFill size={20} />
-                      </span>
-                    </Link>
-                  </li>
-                ))
-              )}
-              <li className=" border-solid border-2 border-black dark:border-white hover:scale-95  transition-all duration-300 ease-in-out rounded-md ">
+              <li
+                className="list-none  mr-3  rounded-md bg-black dark:bg-white text-white dark:text-black  border-solid border-2 border-black
+  dark:border-white  hover:scale-[.99] transition-all duration-300 ease-in-out max-[300px]:mr-0 max-[300px]:mb-3"
+              >
                 <Link
-                  href="/about"
-                  aria-label="Contact"
-                  className="flex items-center py-[6px]  px-3 text-base  "
+                  href={`/about`}
+                  aria-label="Resume"
+                  className=" flex items-center    py-[6px] px-3 text-base font-medium "
                 >
-                  Know more
-                  <span className="ml-2">
+                  <span className="mr-2">
                     <RiProfileFill size={20} />
                   </span>
+                  Know more
+                </Link>
+              </li>
+
+              <li className=" border-solid border-2 border-black dark:border-white hover:scale-[.99]  transition-all duration-300 ease-in-out rounded-md ">
+                <Link
+                  href="/project"
+                  aria-label="Contact"
+                  className="flex items-center py-[6px]  px-3 text-base font-medium  "
+                >
+                  <span className="mr-2">
+                    <GrProjects size={16} />
+                  </span>
+                  See projects
                 </Link>
               </li>
             </ul>
